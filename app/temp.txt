@@ -1,0 +1,5 @@
+2.3.1 :001 > sLoading development environment (Rails 5.0.0.1)
+^C
+2.3.1 :001 > ^C
+2.3.1 :001 > 
+Running via Spring preloader in process 10320
