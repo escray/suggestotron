@@ -4,6 +4,7 @@ class TopicsController < ApplicationController
   # GET /topics
   # GET /topics.json
   def index
+    # @topics = Topic.order(:votes)
     @topics = Topic.all
   end
 
@@ -69,15 +70,23 @@ class TopicsController < ApplicationController
 
   def downvote
     @topic = Topic.find(params[:id])
-    @topic.votes.first.destory
+    @topic.votes.first.destroy
     redirect_to(topics_path)
+  end
+
+  def count_votes
+    @topic = Topic.find(params[:id])
+    @topic.votes.count
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_topic
       @topic = Topic.find(params[:id])
+      @topic.votes = @topic.votes.count
     end
+
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def topic_params
